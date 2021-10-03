@@ -1,0 +1,79 @@
+#t2,
+#t1 {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: darkslategrey;
+}
+
+.header {
+    background-color: f0faf8;
+    display: flex;
+    flex-wrap: warp;
+    height: 200px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#t1 {
+    margin-top: 30px;
+    /* width: 62%; */
+    line-height: 20px;
+    text-align: center;
+}
+
+#t1 h2 {
+    font-size: 60;
+    font-weight: bold;
+}
+
+#t2 {
+    border: 1px solid black;
+    width: 30%;
+    line-height: 30px;
+    text-align: center;
+    font-size: 25;
+    font-weight: bolder;
+    margin-bottom: 35px;
+}
+
+.content {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+table {
+    border: 2px solid black;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+table tr th {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+table tr td {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    img {
+        width: 100px;
+        height: 200px;
+    }
+}
+
+
+/*# sourceMappingURL=styles2.css.map */

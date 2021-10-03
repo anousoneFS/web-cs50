@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body style="height:1500px">
+
+    <div class="header">
+        <div id="t1">
+            <h2>Fast Arduino</h2>
+        </div>
+        <div id="t2">
+            <p>Coding at School</br> power by <b>Arduino Laos</b></p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="blink.html">Blink</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ultrasonic.html">Ultrasonic</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="light.html">Light Sensor</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+
+        <div class="container px-lg-5">
+            <div class="row mx-lg-n5">
+                <div class="col py-3 px-md-3 border bg-light">
+                    <h3>hardware required</h3>
+                </div>
+                <div class="col py-3 px-md-3 border bg-light">
+                    <h4>count</h4>
+                </div>
+                <div class="w-100"></div>
+                <div class="col py-2 px-md-3 border bg-light">Arduino or Genuino Board optional</div>
+                <div class="col py-2 px-md-3 border bg-light">1</div>
+                <div class="w-100"></div>
+                <div class="col py-2 px-md-3 border bg-light">Ultrasonic HC-SR04</div>
+                <div class="col py-2 px-md-3 border bg-light">1</div>
+                <div class="w-100"></div>
+                <div class="col py-2 px-md-3 border bg-light">Breadboard</div>
+                <div class="col py-2 px-md-3 border bg-light">1</div>
+                <div class="w-100"></div>
+                <div class="col py-2 px-md-3 border bg-light">jumper wired</div>
+                <div class="col py-2 px-md-3 border bg-light">4</div>
+            </div>
+        </div>
+
+        <div class="Title"><br>
+            <h1>HC-SR04 Ultrasonic Sensor Pinout
+            </h1>
+        </div>
+        <div class="detail">
+            <p>The HC-SR04 ultrasonic sensor uses sonar to determine distance to an object like bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package. It comes complete with ultrasonic transmitter
+                and receiver modules.
+
+            </p>
+            <img src="">
+            </br>
+            </br>
+
+            <div class="container px-lg-5">
+                <div class="row mx-lg-n5">
+                    <div class="col py-3 px-md-3 border bg-light">
+                        <h3>Ultrasonic Sensor HC-SR04</h3>
+                    </div>
+                    <div class="col py-3 px-md-3 border bg-light">
+                        <h4>Arduino</h4>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col py-2 px-md-3 border bg-light">VCC</div>
+                    <div class="col py-2 px-md-3 border bg-light">5V</div>
+                    <div class="w-100"></div>
+                    <div class="col py-2 px-md-3 border bg-light">Trig</div>
+                    <div class="col py-2 px-md-3 border bg-light">Pin 11</div>
+                    <div class="w-100"></div>
+                    <div class="col py-2 px-md-3 border bg-light">Echo</div>
+                    <div class="col py-2 px-md-3 border bg-light">Pin 12</div>
+                    <div class="w-100"></div>
+                    <div class="col py-2 px-md-3 border bg-light">GND</div>
+                    <div class="col py-2 px-md-3 border bg-light">GND</div>
+                </div>
+            </div>
+        </div>
+
+        </br>
+        <h1>circuit</h1>
+        </br>
+        <img src="https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2013/11/ultrasonic-sensor-with-arduino-hc-sr04.jpg?ssl=1" style="width:700px;height: 400px;">
+        </br>
+        </br>
+        </br>
+        <h1>code:</h1>
+        </br>
+        <pre>
+            <code>/*
+                * created by Rui Santos, https://randomnerdtutorials.com
+                * 
+                * Complete Guide for Ultrasonic Sensor HC-SR04
+                *
+                   Ultrasonic sensor Pins:
+                       VCC: +5VDC
+                       Trig : Trigger (INPUT) - Pin11
+                       Echo: Echo (OUTPUT) - Pin 12
+                       GND: GND
+                */
+                
+               int trigPin = 11;    // Trigger
+               int echoPin = 12;    // Echo
+               long duration, cm, inches;
+
+               void setup() {
+                //Serial Port begin
+                Serial.begin (9600);
+                //Define inputs and outputs
+                pinMode(trigPin, OUTPUT);
+                pinMode(echoPin, INPUT);
+              }
+               
+                void loop() {
+                // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
+                // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+                digitalWrite(trigPin, LOW);
+                delayMicroseconds(5);
+                digitalWrite(trigPin, HIGH);
+                delayMicroseconds(10);
+                digitalWrite(trigPin, LOW);
+               
+                // Read the signal from the sensor: a HIGH pulse whose
+                // duration is the time (in microseconds) from the sending
+                // of the ping to the reception of its echo off of an object.
+                pinMode(echoPin, INPUT);
+                duration = pulseIn(echoPin, HIGH);
+               
+                // Convert the time into a distance
+                cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+                inches = (duration/2) / 74;   // Divide by 74 or multiply by 0.0135
+                
+                Serial.print(inches);
+                Serial.print("in, ");
+                Serial.print(cm);
+                Serial.print("cm");
+                Serial.println();
+                
+                delay(250);
+              }
+              
+        </code>
+          </pre>
+
+    </div>
+
+
+</body>
+
+</html>

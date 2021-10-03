@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body style="height:1500px">
+
+    <div class="header">
+        <div id="t1">
+            <h2>Fast Arduino</h2>
+        </div>
+        <div id="t2">
+            <p>Coding at School</br> power by <b>Arduino Laos</b></p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="blink.html">Blink</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ultrasonic.html">Ultrasonic</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="light.html">Light Sensor</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="Title"><br>
+            <h1>Light Sensor</h1>
+        </div>
+        <div class="detail">
+            <p>LDRs or Light Dependent Resistors are very useful especially in light/dark sensor circuits. Normally the resistance of an LDR is very high, sometimes as high as 1000 000 ohms, but when they are illuminated with light resistance drops dramatically.</p>
+        </div>
+        <h2>Hardware Required</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+            <tr>
+                <td>Arduino UNO Board</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>LDR</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Breadboard</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Jumper Wired</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>LED</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Resistor</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        </br>
+        <h1>circuit</h1>
+        </br>
+        <img src="http://4.bp.blogspot.com/-hO5OopB09_0/U36eEBzhf3I/AAAAAAAACPY/0ZOkV7kQldw/s1600/Circuito-LDR-Dimmer.png" style="width:960px;height: 400px;">
+        </br>
+        </br>
+        </br>
+        <h1>code:</h1>
+        </br>
+        <pre>
+            <code>
+                int portaLed = 10; //Port is being used to connect the LED 
+                int portaLDR = A5; //Analog port used by LDR
+                
+                void setup() 
+                { 
+                 pinMode(portaLed, OUTPUT); //Sets Led door as output
+                } 
+                
+                void loop() 
+                { 
+                 int estado = analogRead(portaLDR); Read the value provided by LDR
+                
+                 // If the value read from the analog port is greater than
+                 // 800, acende o LED 
+                 // Set the value below according to your circuit
+                 if (estado > 800) 
+                 { 
+                 digitalWrite(portaLed, HIGH); 
+                 } 
+                 else //Otherwise, the LED goes out
+                 { 
+                 digitalWrite(portaLed, LOW); 
+                 } 
+                }
+        </code>
+          </pre>
+
+    </div>
+
+
+</body>
+
+</html>
